@@ -1,3 +1,3 @@
 module.exports = {
-  title: 'os-control'
+  title: 'my-app'
 };

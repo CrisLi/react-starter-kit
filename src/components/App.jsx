@@ -1,7 +1,7 @@
 import React from 'react';
 
 const App = () => (
-  <div>Openshift Control</div>
+  <div>My App</div>
 );
 
 export default App;

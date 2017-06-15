@@ -1,6 +1,6 @@
 module.exports = {
   NODE_ENV: 'development',
   devServer: {
-    port: 9000
+    port: 3000
   }
 };

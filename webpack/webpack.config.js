@@ -1,15 +1,10 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const { appPath, distPath, publicPath } = require('./paths');
+const autoPrefixer = require('autoprefixer');
+const { distPath, publicPath } = require('./paths');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?/',
-    'webpack/hot/only-dev-server',
-    appPath
-  ],
   output: {
     path: distPath,
     filename: 'static/js/[name].[hash:8].js',
@@ -48,6 +43,21 @@ module.exports = {
               options: {
                 importLoaders: 1,
                 minimize: isProduction
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  autoPrefixer({
+                    browsers: [
+                      '>1%',
+                      'last 4 versions',
+                      'Firefox ESR',
+                      'not ie < 9'
+                    ]
+                  })
+                ]
               }
             }
           ]
